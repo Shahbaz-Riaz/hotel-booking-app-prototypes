@@ -1,0 +1,29 @@
+{
+  "name": "projects",
+  "version": "1.0.0",
+  "main": "server.js",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js",
+    "css": "npx @tailwindcss/cli -i ./views/input.css -o ./public/output.css --watch",
+    "dev": "concurrently \"nodemon server.js\" \"npm run css\""
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "@tailwindcss/cli": "^4.1.12",
+    "dotenv": "^17.2.1",
+    "ejs": "^3.1.10",
+    "express": "^5.1.0",
+    "multer": "^2.0.2",
+    "mysql2": "^3.14.5",
+    "nodemon": "^3.1.10",
+    "tailwindcss": "^4.1.12"
+  },
+  "devDependencies": {
+    "concurrently": "^9.2.1"
+  }
+}

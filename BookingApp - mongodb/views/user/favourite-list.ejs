@@ -1,0 +1,54 @@
+<%- include('../partials/head',{pageTitle: "favourites"}) %>
+<%- include('../partials/header') %>
+<%- include('../partials/user-nav') %>
+
+
+<body>
+
+
+<main class="max-w-7xl mx-auto p-6">
+   <ul class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+     <% favourites.forEach(fav => { %>
+  <% fav.homeDetails.forEach(h => { %>
+    <li class="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-lg transition">
+      <!-- Image -->
+      <div class="relative h-48 w-full">
+        <img class="h-full w-full object-cover" 
+             src="<%= h.imagePath %>"
+             alt="Room Image" />
+      </div>
+
+      <!-- Content -->
+      <div class="p-4 space-y-2">
+        <h3 class="text-lg font-bold text-gray-900 truncate">
+          <%= h.homeName %>
+        </h3>
+        <p class="text-sm text-gray-600 line-clamp-2">
+          <%= h.description %>
+        </p>
+
+        <div class="flex items-center text-yellow-500 text-sm">
+          ⭐⭐⭐⭐☆ <span class="ml-2 text-gray-500">(24 reviews)</span>
+        </div>
+
+        <div class="flex flex-col sm:flex-row justify-between items-center mt-3 gap-2">
+          <p class="text-xl font-semibold text-red-500">$<%= h.price %>/night</p>
+          <div class="flex flex-col sm:flex-row gap-2 w-full sm:w-auto">
+            <a href="/user/homes/<%= h._id %>" 
+              class="bg-red-500 hover:bg-red-600 text-white px-4 py-2 rounded-lg text-sm font-medium w-full sm:w-auto">
+              View Details
+            </a>
+            <button class="bg-red-500 hover:bg-red-600 text-white px-4 py-2 rounded-lg text-sm font-medium w-full sm:w-auto">
+              Book Now
+            </button>
+          </div>
+        </div>
+      </div>
+    </li>
+  <% }) %>
+<% }) %>
+
+    </ul>
+</main>
+
+</body>
